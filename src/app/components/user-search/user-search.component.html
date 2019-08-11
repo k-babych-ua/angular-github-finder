@@ -1,0 +1,12 @@
+<div>
+    <input [(ngModel)]="searchTerm" (input)="searchUsers($event && $event.target && $event.target.value)">
+    <ul class="search-result">
+        <div class="search-result-list">
+          <li *ngFor="let user of users | async" >
+            <a (click)="selectUser(user)">
+              {{user.login}}
+            </a>
+          </li>
+        </div>
+      </ul>
+</div>

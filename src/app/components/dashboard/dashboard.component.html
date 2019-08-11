@@ -1,0 +1,2 @@
+<app-user-search (selectUserEvent)="selectUser($event)"></app-user-search>
+<app-user-profile *ngIf="selectedUser" [userLogin]="selectedUser"></app-user-profile>

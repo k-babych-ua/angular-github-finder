@@ -1,0 +1,21 @@
+<div *ngIf="user" class="container">
+    <div class="row">
+        <div class="col">
+            <img class="profile-photo" *ngIf="user.avatar_url" [src]="user.avatar_url">
+        </div>
+        <div class="col">
+            <div>
+                <label>Name: </label>
+                <a [href]="user.html_url" target="_blank">{{user.name}}</a>
+            </div>
+            <div>
+                <label>Repositories: </label>
+                <ul *ngIf="repos">
+                    <li *ngFor="let repo of repos">
+                        <a [href]="repo.html_url" target="_blank">{{repo.name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

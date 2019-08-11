@@ -1,0 +1,6 @@
+@import "mdbootstrap\css\bootstrap.css";
+
+img.profile-photo {
+    height: 180px;
+    width: 180px;
+}
