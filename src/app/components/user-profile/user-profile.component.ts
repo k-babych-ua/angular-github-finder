@@ -13,24 +13,26 @@ export class UserProfileComponent implements OnInit {
   public user: IUser;
   public repos: IRepo[];
 
-  @Input() userLogin: string;
+  @Input() userLogin: Observable<string>;
 
   constructor(
     private githubService: GithubService
   ) {
-    
+
   }
 
   ngOnInit() {
-    this.githubService.getUser(this.userLogin)
-      .subscribe(user => {
-        console.log(user);
+    this.userLogin.subscribe(login => {
+      this.githubService.getUser(login)
+        .subscribe(user => {
+          console.log(user);
 
-        this.user = user; 
+          this.user = user;
 
-        this.githubService.getRepos(user.repos_url)
-          .subscribe(repos => this.repos = repos);
-      });
+          this.githubService.getRepos(user.repos_url)
+            .subscribe(repos => this.repos = repos);
+        });
+    });
   }
 
 }

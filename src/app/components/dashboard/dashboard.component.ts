@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/models/entities/IUser';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +8,7 @@ import { IUser } from 'src/app/models/entities/IUser';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  public selectedUser: string;
+  public selectedUser: Observable<string>;
 
   constructor() { }
 
@@ -15,7 +16,10 @@ export class DashboardComponent implements OnInit {
   }
 
   public selectUser(user: IUser): void {
+    console.log('user emitted');
+    console.log(JSON.stringify(user));
+
     if (user.login)
-      this.selectedUser = user.login;
+      this.selectedUser = of(user.login);
   }
 }

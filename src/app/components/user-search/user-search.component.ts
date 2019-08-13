@@ -25,7 +25,7 @@ export class UserSearchComponent implements OnInit {
     console.log("init");
 
     this.users = this.searchTerms.pipe(
-      debounceTime(1000),
+      debounceTime(500),
       distinctUntilChanged(),
       switchMap(term => this.githubService.searchUsers(term))
     );
@@ -41,7 +41,7 @@ export class UserSearchComponent implements OnInit {
   }
 
   public selectUser(user: IUser): void {
-    console.log(`select user ${user.login}`);
+    console.log(`select user ${JSON.stringify(user)}`);
 
     if (user) {
       this.searchTerm = "";

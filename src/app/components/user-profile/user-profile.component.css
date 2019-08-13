@@ -4,3 +4,19 @@ img.profile-photo {
     height: 180px;
     width: 180px;
 }
+
+.container {
+    width: 75%;
+}
+
+.profile-link {
+    font-size: large;
+}
+
+.repo-link {
+    font-size: large;
+}
+
+.profile-col {
+    text-align: center;
+}

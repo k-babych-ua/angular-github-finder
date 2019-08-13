@@ -1,2 +1,5 @@
-<app-user-search (selectUserEvent)="selectUser($event)"></app-user-search>
-<app-user-profile *ngIf="selectedUser" [userLogin]="selectedUser"></app-user-profile>
+<div class="container">
+    <h1>GitHub Finder</h1>
+    <app-user-search (selectUserEvent)="selectUser($event)"></app-user-search>
+    <app-user-profile *ngIf="selectedUser" [userLogin]="selectedUser"></app-user-profile>
+</div>

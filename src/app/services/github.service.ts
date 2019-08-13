@@ -38,12 +38,14 @@ export class GithubService {
   }
 
   public getUser(userName: string): Observable<IUser> {
+    // const userUrl = `${this.baseUrl}/users/${userName}?client_id=${this.clientId}&client_secret=${this.clientSecret}`;
     const userUrl = `${this.baseUrl}/users/${userName}`;
 
     return this.http.get<IUser>(userUrl);
   }
 
   public searchUsers(userName: string): Observable<IUser[]> {
+    // const usersUrl = `${this.baseUrl}/search/users?q=${userName}?client_id=${this.clientId}&client_secret=${this.clientSecret}`;
     const usersUrl = `${this.baseUrl}/search/users?q=${userName}`;
 
     if (!userName)
@@ -56,7 +58,7 @@ export class GithubService {
   }
 
   public getRepos(reposUrl: string): Observable<IRepo[]> {
-    return this.http.get<IRepo[]>(reposUrl);
+    return this.http.get<IRepo[]>(`${reposUrl}?client_id=${this.clientId}&client_secret=${this.clientSecret}`);
   }
 
   private getOauthToken(): Observable<string> {
